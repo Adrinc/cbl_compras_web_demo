@@ -1,0 +1,61 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/procurement-theme.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title = "Portal de Compras | CBLuna Demo",
+  description = "Demo interactiva de Portal de Compras Internas - gestiona catálogo, solicitudes y órdenes de compra"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta name="generator" content={Astro.generator} />
+  
+  <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}/favicon.png`} />
+  <title>{title}</title>
+  
+  <!-- View Transitions -->
+  <ViewTransitions />
+</head>
+<body>
+  <slot />
+</body>
+</html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    /* Viñeta: centro claro → bordes oscuros */
+    background: radial-gradient(ellipse at 50% 50%,
+      #3C5479 0%,
+      #2D4265 30%,
+      #1F3050 60%,
+      #192034 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+</style>

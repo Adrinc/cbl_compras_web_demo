@@ -1,0 +1,312 @@
+/* ============================================
+   SECTION 2 - MANIFESTO + STATS
+   Portafolio Abraham Domínguez
+   ============================================ */
+
+.section {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(3rem, 8vh, 6rem) var(--space-md);
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+/* Decoración de fondo con gradiente radial */
+.bgDecoration {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(
+      circle at 30% 40%,
+      rgba(99, 102, 241, 0.12) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(236, 72, 153, 0.08) 0%,
+      transparent 50%
+    );
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatGlow 8s ease-in-out infinite;
+}
+
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -52%) scale(1.05);
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ============================================
+   MANIFESTO SECTION
+   ============================================ */
+
+.manifestoWrapper {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.title {
+  font-family: var(--font-family-display);
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.manifesto {
+  font-size: var(--fs-md);
+  color: var(--text-secondary);
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.manifestoBold {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--gradient-creative);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+/* ============================================
+   STATS GRID
+   ============================================ */
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-top: clamp(3rem, 5vw, 4rem);
+}
+
+.statCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+  min-height: 280px;
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--border-interactive);
+  border-radius: 24px;
+  transition: all var(--transition-base);
+  cursor: default;
+  overflow: hidden;
+  opacity: 1;
+  box-shadow: var(--shadow-md);
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-slow);
+}
+
+.statCard:hover {
+  transform: translateY(-8px);
+  border-color: var(--secondary-color);
+  background: rgba(17, 24, 39, 0.8);
+  box-shadow: var(--shadow-glow-hover);
+}
+
+.statCard:hover::before {
+  transform: scaleX(1);
+}
+
+/* Glow effect background */
+.statGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(99, 102, 241, 0.15) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.statCard:hover .statGlow {
+  opacity: 1;
+}
+
+.statIcon {
+  font-size: 3rem;
+  margin-bottom: var(--space-sm);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: transform var(--transition-base);
+}
+
+.statCard:hover .statIcon {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.statValue {
+  font-family: var(--font-family-display);
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.4));
+}
+
+.statLabel {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.4;
+  font-weight: 500;
+  max-width: 200px;
+  transition: color var(--transition-base);
+}
+
+.statCard:hover .statLabel {
+  color: var(--text-primary);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 16px rgba(99, 102, 241, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(99, 102, 241, 0.25);
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1200px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-lg) var(--space-sm);
+    min-height: auto;
+  }
+
+  .manifestoWrapper {
+    margin-bottom: var(--space-lg);
+  }
+
+  .title {
+    font-size: var(--fs-lg);
+  }
+
+  .manifesto {
+    font-size: var(--fs-base);
+    padding: 0 var(--space-xs);
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .statCard {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .statValue {
+    font-size: clamp(2.5rem, 8vw, 3rem);
+  }
+
+  .statLabel {
+    font-size: var(--fs-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .statIcon {
+    font-size: 2.5rem;
+  }
+
+  .statValue {
+    font-size: 2.5rem;
+  }
+}
+
+/* Accesibilidad: Deshabilitar animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  .statCard,
+  .manifestoWrapper {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .statCard {
+    opacity: 1;
+  }
+
+  .statCard::before {
+    transform: scaleX(1);
+  }
+}

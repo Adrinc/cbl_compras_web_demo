@@ -55,19 +55,19 @@
 }
 
 .catalogHeroBg::after {
-  background-image: url('./cbl_compras_web_demo/image/catalogo_banner_bg.png');
+  background-image: url('/cbl_compras_web_demo/image/catalogo_banner_bg.png');
 }
 
 .requestsHeroBg::after {
-  background-image: url('./cbl_compras_web_demo/image/solicitudes_banner_bg.png');
+  background-image: url('/cbl_compras_web_demo/image/solicitudes_banner_bg.png');
 }
 
 .ordersHeroBg::after {
-  background-image: url('./cbl_compras_web_demo/image/ordenes_banner_bg.png');
+  background-image: url('/cbl_compras_web_demo/image/ordenes_banner_bg.png');
 }
 
 .reportsHeroBg::after {
-  background-image: url('./cbl_compras_web_demo/image/reportes_banner_bg.png');
+  background-image: url('/cbl_compras_web_demo/image/reportes_banner_bg.png');
 }
 
 .screenHeroContent {
